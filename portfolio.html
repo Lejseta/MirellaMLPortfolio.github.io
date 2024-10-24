@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .card-container {
+            max-width: 100%;
+            overflow-x: auto;  
+            display: flex;      
+            padding: 15px;     
+            scrollbar-width: thin; 
+            -ms-overflow-style: auto; /* Show scrollbar only when needed */
+        }
+        
+        .card-container::-webkit-scrollbar {
+            height: 8px; 
+        }
+
+        .card-container::-webkit-scrollbar-thumb {
+            background-color: #888; 
+            border-radius: 4px;
+        }
+
+        .card {
+            flex: 0 0 auto; 
+            width: 250px; 
+            margin-right: 15px; 
+        }
+
+        .section-title {
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .custom-navbar {
+            background-color: #009efa; 
+        }
+        .custom-navbar .nav-link {
+            color: #ffffff !important; 
+        }
+        .custom-navbar .nav-link:hover {
+            color: #ffd700 !important; 
+        }
+
+        .btn-custom {
+            background-color: #009efa; 
+            color: #ffffff; 
+        }
+        .btn-custom:hover {
+            background-color: #0056b3; 
+            color: #ffffff; 
+        }
+
+        .footer-custom {
+            background-color:#009efa; 
+            color: #ffffff; 
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <a class="navbar-brand" href="#">LOGO</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Me</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#experience">Work Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main class="container mt-4">
+    <section id="home">
+        <h1>Hi, I'm Mirella</h1>
+        <p></p>
+        <a href="#" class="btn btn-custom">Contact</a> 
+    </section>
+
+    <section id="about" class="mt-4">
+        <h2 class="section-title">About Me</h2>
+        I am a dedicated fourth-year software development student at SETU Carlow
+        with a strong ambition to excel in my field. Driven by a deep sense of responsibility for my work, I constantly strive for personal and professional growth, 
+        setting high standards for myself and actively seeking opportunities to enhance my skills. 
+        <p></p>
+    </section>
+
+    <section id="skills" class="mt-4">
+        <h2 class="section-title">Hard Skills</h2>
+        <p></p>
+        <ul>
+            <li>C#, Python - Proficient</li>
+            <li>Software Development: Java, C++ - Intermediate</li>
+            <li>Organizational Tools (Perforce, Jira, Git) – Intermediate</li>
+            <li>Query Language (T-SQL) - Intermediate</li>
+        </ul>
+    </section>
+
+    <section id="projects" class="mt-4">
+        <h2 class="section-title">Projects</h2>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Housing Price Prediction</h5>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-custom">View</a> 
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Global Games Sales Prediction</h5>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-custom">View</a> 
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Medical Insurance Prediction</h5>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-custom">View</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="mt-4">
+        <h2 class="section-title">Work Experience</h2>
+        <p></p>
+    </section>
+
+    <section id="contact" class="mt-4">
+        <h2 class="section-title">Contact</h2>
+        <p>
+            <a href="mailto:glowinskamirella@gmail.com" class="d-inline-flex align-items-center">
+                <i class="fas fa-envelope me-2"></i> <!-- Email icon -->
+                glowinskamirella@gmail.com
+            </a>
+        </p>
+    </section>
+</main>
+
+<footer class="footer-custom text-center mt-4 p-3"> <!-- Updated class for footer -->
+    <p>© 2024 Mirella Glowinska</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,1 +1,1 @@
-As I had limited time, I chose 2 datasets from Kaggle.
+Due to time limitations I chose two datasets from Kaggle.

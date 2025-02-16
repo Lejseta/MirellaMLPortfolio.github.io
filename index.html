@@ -11,7 +11,7 @@
             max-width: 100%;
             overflow-x: auto;  
             display: flex;      
-            justify-content: center; 
+            justify-content: flex-start;  /* Align cards to the left */
             padding: 15px;     
             scrollbar-width: thin; 
             -ms-overflow-style: auto; 
@@ -20,18 +20,18 @@
         .card-container::-webkit-scrollbar {
             height: 8px; 
         }
-
+        
         .card-container::-webkit-scrollbar-thumb {
             background-color: #888; 
             border-radius: 4px;
         }
-
+        
         .card {
             flex: 0 0 auto; 
             width: 300px; 
             margin-right: 15px; 
         }
-
+        
         .card-img-top {
             height: 150px; 
             object-fit: cover; 
@@ -182,7 +182,64 @@
                     <a href="https://colab.research.google.com/gist/Lejseta/0b319681efd6b9dbc05589d35ab9f499/spam-vs-not-spam-random-forest.ipynb" class="btn btn-custom">View</a>
                 </div>
             </div>
-            
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3lCEXYQ3jnQE4tzcY7--dRvnfKAlz-Xx8QA&s" class="card-img-top" >
+                <div class="card-body">
+                    <h5 class="card-title"> Movie Reviews Prediction</h5>
+                    <p class="card-text"><b>Data Source:</b> https://ai.stanford.edu/~amaas/data/sentiment/</p>
+                    <p class="card-text"><b>Pre Processing: </b>
+                        <br>
+                      
+                    <p class="card-text"><b>Description: </b> The objective of this project is to develop a model that can classify movie reviews as positive or negative.</p>
+                    <p class="card-text"></p>
+                    <a href="https://colab.research.google.com/gist/Lejseta/95fd6830a85cc7480d914e415f4bbc5c/moviereviewsmultinomial-na-ve-bayes.ipynb" class="btn btn-custom">View</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://miro.medium.com/v2/resize:fit:844/1*MyKDLRda6yHGR_8kgVvckg.png" class="card-img-top" >
+                <div class="card-body">
+                    <h5 class="card-title">Telco Customer Churn Prediction</h5>
+                    <p class="card-text"><b>Data Source:</b> https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data</p>
+                    <p class="card-text"><b>Pre Processing: </b>
+                        <br>
+                        -  Data cleaning <br>
+                        -  Handling Missing Values <br>
+                        -  Converting 'Churn' Column to Binary Values<br>
+                        -  Handling Class Imbalance (SMOTE) <br>
+                        -  Dimensionality Reduction (PCA) <br>
+                    <p class="card-text"><b>Description: </b> It focuses on predicting customer churn in a fictitious telecommunications company, Telco. The goal is to understand the factors that influence customers' decision to churn.</p>
+                    <p class="card-text"></p>
+                    <a href="https://colab.research.google.com/gist/Lejseta/2c7bd9fb1c5a81f275ba0bafce93976e/telco-customer-churn-knn.ipynb" class="btn btn-custom">View</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBKIVMNr5PrXOBON1zrmQqeX6b7yCCD-bVgQ&s" class="card-img-top" >
+                <div class="card-body">
+                    <h5 class="card-title">Mall Customer Segmentation</h5>
+                    <p class="card-text"><b>Data Source:</b> https://www.kaggle.com/datasets/vjchoudhary7/customer-segmentation-tutorial-in-python?select=Mall_Customers.csv</p>
+                    <p class="card-text"><b>Pre Processing: </b>
+                        <br>
+                        -  Checking for missing values <br>
+                        -  Data Normalization
+                    <p class="card-text"><b>Description:</b>This project aims to analyse the correlation between income, gender, age and a spending score to recognize patterns during the shopping.</p>
+                    <p class="card-text"></p>
+                    <a href="https://colab.research.google.com/gist/Lejseta/37b12e86de2b97a0f178231280e0ca59/-mallcustomersegmentationusing-k-mean-clustering.ipynb" class="btn btn-custom">View</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Irissetosa1.jpg" class="card-img-top" >
+                <div class="card-body">
+                    <h5 class="card-title">Iris Flower Classification</h5>
+                    <p class="card-text"><b>Data Source:</b> https://www.kaggle.com/datasets/uciml/iris/data</p>
+                    <p class="card-text"><b>Pre Processing: </b>
+                        <br>
+                        -  Label Encoding <br>
+                        -  Checking for missing values <br>
+                    <p class="card-text"><b>Description: </b>The project aims to classify iris flowers into three species: Iris setosa, Iris versicolor, and Iris virginica, using a Support Vector Machine (SVM) classifier.</p>
+                    <p class="card-text"></p>
+                    <a href="https://colab.research.google.com/gist/Lejseta/57fc99ddb8e572afa13edcb9ae19bfd3/irisflowerclassificationsvm.ipynb" class="btn btn-custom">View</a>
+                </div>
+            </div>
         </div>
     </section>
 

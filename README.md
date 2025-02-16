@@ -4,6 +4,11 @@ Due to time limitations I chose two datasets from Kaggle.
 
 
 Data sources: 
+
 https://www.kaggle.com/datasets/reihanenamdari/breast-cancer/data
 https://www.kaggle.com/datasets/yasserh/housing-prices-dataset
 https://archive.ics.uci.edu/dataset/228/sms+spam+collection
+https://ai.stanford.edu/~amaas/data/sentiment/
+https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data
+https://www.kaggle.com/datasets/vjchoudhary7/customer-segmentation-tutorial-in-python?select=Mall_Customers.csv
+https://www.kaggle.com/datasets/uciml/iris/data

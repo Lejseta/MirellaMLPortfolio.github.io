@@ -20,7 +20,7 @@ Preprocessing Steps:
 - Feature Scaling: Applied StandardScaler to normalize the numerical features.
 
 4. Modeling
-Model 
+
 Algorithm: K-Means Clustering
 
 - Used the Elbow Method to determine the optimal number of clusters.

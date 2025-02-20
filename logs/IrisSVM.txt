@@ -1,0 +1,80 @@
+1. Business Understanding
+
+The goal of this project is to classify iris flower species (Setosa, Versicolor, and Virginica) using a Support Vector Machine (SVM), based on four numerical features: sepal length, sepal width, petal length, and petal width.
+
+
+2. Data Understanding
+
+Dataset: The Iris dataset contains 150 rows of iris flowers categorized into three species.
+
+Key Features:
+- Numerical features: SepalLengthCm, SepalWidthCm, PetalLengthCm, PetalWidthCm
+- Target variable: Species (Setosa, Versicolor, Virginica)
+
+Data Issues Identified:
+- No missing values in the dataset.
+- No categorical variables that require encoding except for the target variable.
+- The dataset is balanced across the three classes.
+
+3. Data Preparation
+
+Preprocessing Steps:
+- Label Encoding: The target variable was transformed into numerical values (0, 1, 2) using LabelEncoder.
+- StandardScaler was applied to standardize numerical features.
+
+4. Modeling
+
+Model
+Algorithm: SVM
+- Kernels used: Linear, RBF, and Polynomial
+Results:
+
+Kernel: linear
+Accuracy: 1.0
+Classification Report:
+                  precision    recall  f1-score   support
+
+    Iris-setosa       1.00      1.00      1.00        10
+Iris-versicolor       1.00      1.00      1.00         9
+ Iris-virginica       1.00      1.00      1.00        11
+
+       accuracy                           1.00        30
+      macro avg       1.00      1.00      1.00        30
+   weighted avg       1.00      1.00      1.00        30
+
+
+Kernel: rbf
+Accuracy: 1.0
+Classification Report:
+                  precision    recall  f1-score   support
+
+    Iris-setosa       1.00      1.00      1.00        10
+Iris-versicolor       1.00      1.00      1.00         9
+ Iris-virginica       1.00      1.00      1.00        11
+
+       accuracy                           1.00        30
+      macro avg       1.00      1.00      1.00        30
+   weighted avg       1.00      1.00      1.00        30
+
+
+Kernel: poly
+Accuracy: 1.0
+Classification Report:
+                  precision    recall  f1-score   support
+
+    Iris-setosa       1.00      1.00      1.00        10
+Iris-versicolor       1.00      1.00      1.00         9
+ Iris-virginica       1.00      1.00      1.00        11
+
+       accuracy                           1.00        30
+      macro avg       1.00      1.00      1.00        30
+   weighted avg       1.00      1.00      1.00        30
+6. Deployment
+
+- Saving the serialized version of a model
+- Developing a Flask app that can handle incoming requests, process them and send the response with the prediction.
+- Building an isolated application container for simple project initialization
+
+Conclusion:
+
+The SVM model achieved perfect classification performance, due to the dataset's simplicity and well-separated  and balanced classes.

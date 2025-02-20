@@ -1,0 +1,92 @@
+1. Business Understanding
+
+The goal of this project is to classify movie reviews as either positive or negative using a Naive Bayes classifier.
+
+2. Data Understanding
+
+- The dataset consists of positive and negative movie reviews.
+- The dataset contains the following folders: 'pos' -positive reviews, and 'neg'-negative reviews.
+
+Data Issues Identified:
+
+- Some reviews may be empty or contain encoding errors, requiring preprocessing.
+
+3. Data Preparation
+Pre-processing Steps:
+- Removed empty files.
+- Encoding categorical variables
+4. Modeling
+
+Model (Version 1)
+- Algorithm: Multinomial Naive Bayes
+ - CountVectorizer for text tokenization.
+ - TfidfTransformer for feature scaling.
+- Results:
+  - Accuracy: 86.8%
+  Classification Report:
+         precision    recall  f1-score   support
+
+           0       0.85      0.90      0.87      2485
+           1       0.89      0.84      0.86      2515
+
+    accuracy                           0.87      5000
+   macro avg       0.87      0.87      0.87      5000
+weighted avg       0.87      0.87      0.87      5000
+
+Conclusion: Model performs well, but could benefit from hyperparameter tuning.
+
+Model (Version 2)
+- Adjusted CountVectorizer parameters (e.g., n-grams, stopword removal).
+- Results:
+  - Accuracy: 85% (worse performance)
+  Classification Report:
+                 precision    recall  f1-score   support
+
+           0       0.85      0.84      0.85      2485
+           1       0.85      0.86      0.85      2515
+
+    accuracy                           0.85      5000
+   macro avg       0.85      0.85      0.85      5000
+weighted avg       0.85      0.85      0.85      5000
+
+Conclusion: Worse performance than Version 1
+
+Model (Version 3)
+- Fine-tuned hyperparameters
+- Results:
+  - Accuracy: 87.74%
+  - Classification Report:
+
+               precision    recall  f1-score   support
+
+           0       0.87      0.89      0.88      2485
+           1       0.89      0.87      0.88      2515
+
+    accuracy                           0.88      5000
+   macro avg       0.88      0.88      0.88      5000
+weighted avg       0.88      0.88      0.88      5000
+
+Conclusion: Better performance than version 1 ad version 2.
+
+5. Evaluation
+
+-First Version of the Model:
+
+Accuracy: 86.8%
+
+(Negative class) precision = 0.85, recall = 0.90, f1-score = 0.87
+
+-Final Model Performance:
+
+Accuracy: 87.74%
+
+(Negative class) precision = 0.87, recall = 0.89, f1-score = 0.88
+
+Conclusion: The final model (Version 3) demonstrates strong performance, with improvements in recall and overall accuracy.
+
+6. Deployment
+
+- Saving the serialized version of a model
+- Developing a Flask app that can handle incoming requests, process them and send the response with the prediction.
+- Building an isolated application container for simple project initialization
+

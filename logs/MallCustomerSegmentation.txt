@@ -1,0 +1,43 @@
+1. Business Understanding
+
+The objective of this project is to separate customers into separate groups based on their annual income and spending score to help buisnesses better understand customers behaviours and improve marketing strategies accordingly.
+
+2. Data Understanding
+
+Dataset: The dataset contains customer information with features such as:
+- Annual Income (k$) - Customer's yearly income in thousands of dollars
+- Spending Score (1-100) - A measure of customer spending behavior
+- Gender - Categorical variable (not used in clustering but analyzed post-segmentation)
+
+Data Issues Identified:
+- No missing values in the dataset.
+- Numerical features require scaling for better clustering performance.
+
+3. Data Preparation
+
+Preprocessing Steps:
+- Feature Selection: Selected 'Annual Income (k$)' and 'Spending Score (1-100)' for clustering.
+- Feature Scaling: Applied StandardScaler to normalize the numerical features.
+
+4. Modeling
+Model 
+Algorithm: K-Means Clustering
+
+- Used the Elbow Method to determine the optimal number of clusters.
+- Chose K=5 based on the elbow point in the WCSS (Within-Cluster Sum of Squares) plot.
+- Applied k-means++ initialization to improve clustering performance.
+
+Results:
+- 5 clusters created
+- Cluster centroids were calculated and visualized.
+
+5. Evaluation
+Silhouette Score: 0.55
+Davies-Bouldin Index: 0.57
+
+6. Deployment 
+- Saving the serialized version of a model
+- Developing a Flask app that can handle incoming requests, process them and send the response with the prediction.
+- Building an isolated application container for simple project initialization
+
+

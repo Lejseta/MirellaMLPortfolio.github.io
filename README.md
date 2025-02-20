@@ -1,6 +1,6 @@
 This repository showcases my machine learning projects.
 
-Due to time limitations I chose two datasets from Kaggle.
+Due to time limitations I chose few datasets from Kaggle.
 
 
 Data sources: 

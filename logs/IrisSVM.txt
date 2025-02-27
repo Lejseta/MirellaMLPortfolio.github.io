@@ -24,7 +24,6 @@ Preprocessing Steps:
 
 4. Modeling
 
-Model
 Algorithm: SVM
 - Kernels used: Linear, RBF, and Polynomial
 Results:

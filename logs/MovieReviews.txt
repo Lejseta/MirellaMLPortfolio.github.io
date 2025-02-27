@@ -13,7 +13,7 @@ Data Issues Identified:
 
 3. Data Preparation
 Pre-processing Steps:
-- Removed empty files.
+- Skipping empty files.
 - Encoding categorical variables
 4. Modeling
 

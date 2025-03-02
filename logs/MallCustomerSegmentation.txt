@@ -16,7 +16,7 @@ Data Issues Identified:
 3. Data Preparation
 
 Preprocessing Steps:
-- Feature Selection: Selected 'Annual Income (k$)' and 'Spending Score (1-100)' for clustering. I chose these two features because when using all features or only three (e.g., Annual Income (k$)' and 'Spending Score (1-100)', Age), the data points in the plot were mixed, but with just Annual Income and Spending Score, the clusters became more distinct.
+- Feature Selection: Selected 'Annual Income (k$)' and 'Spending Score (1-100)' for clustering. I selected these two features because, when using all features or only three (e.g., Annual Income (k$)' and 'Spending Score (1-100)', Age), the data points in the plot were mixed, but with just Annual Income and Spending Score, the clusters became more distinct.
 - Feature Scaling: Applied StandardScaler to normalize the numerical features.
 
 4. Modeling

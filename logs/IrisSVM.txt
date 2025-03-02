@@ -2,7 +2,6 @@
 
 The goal of this project is to classify iris flower species (Setosa, Versicolor, and Virginica) using a Support Vector Machine (SVM), based on four numerical features: sepal length, sepal width, petal length, and petal width.
 
-
 2. Data Understanding
 
 Dataset: The Iris dataset contains 150 rows of iris flowers categorized into three species.

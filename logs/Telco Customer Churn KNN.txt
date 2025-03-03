@@ -16,67 +16,55 @@ Key Features:
 
 Data Issues Identified:
 - 'customerID' column was removed as it does not provide predictive value.
-- 'TotalCharges' was converted to numeric, and missing values were filled with 0.
+- 'TotalCharges' was converted to numeric, and missing values were filled with median.
 
 3. Data Preparation
 
  Pre-processing Steps
-- Handling Missing Values: 'TotalCharges' missing values were replaced with 0.
+- Handling Missing Values: 'TotalCharges' missing values were replaced with median.
 - Feature Encoding:
   - Categorical variables were transformed using OneHotEncoder.
   - Numerical variables were standardized using StandardScaler.
 - Handling Class Imbalance:
-  - Applied SMOTE to balance the dataset.
+  - Applied SMOTE to balance class distribution.
 
 4. Modeling
+Model Version (1)
+Algorithm: K-Nearest Neighbors (KNN)
 
-Model (Version 1)
-- Algorithm: K-Nearest Neighbors (KNN) with default parameters.
-- Preprocessing:
-  - OneHotEncoding for categorical variables.
-  - StandardScaler for numerical variables.
-- Results:
-  - Accuracy: 76%
-  - ROC-AUC Score: 0.79
-  - Classification Report:
+Accuracy: 69%
+
+Classification Report:
                precision    recall  f1-score   support
 
-           0       0.84      0.83      0.84      1035
-           1       0.55      0.57      0.56       374
+           0       0.91      0.65      0.76      1035
+           1       0.46      0.83      0.59       374
 
-    accuracy                           0.76      1409
-   macro avg       0.70      0.70      0.70      1409
-weighted avg       0.77      0.76      0.77      1409
+    accuracy                           0.69      1409
+   macro avg       0.69      0.74      0.67      1409
+weighted avg       0.79      0.69      0.71      1409
 
-  - Conclusion: Model struggles with class imbalance (more instances of class 0). 
+ROC-AUC Score: 0.807344545196207
 
 Model (Version 2)
-Changes Applied:
-- KNN hyperparameter tuning using GridSearchCV.
-- Applied SMOTE to handle class imbalance.
-- Hyperparameter tuning with GridSearchCV:
-  - n_neighbors: [3, 5, 7, 9]
-  - weights: [uniform, distance]
-  - metric: [euclidean, manhattan]
-- Classification Report:
+Algorithm: K-Nearest Neighbors (KNN)
+Changes: 
+- sampling_strategy=0.5 added to SMOTE
+Accuracy: 76%
+Classification Report:
                precision    recall  f1-score   support
 
-           0       0.88      0.72      0.80      1035
-           1       0.49      0.74      0.59       374
+           0       0.88      0.79      0.83      1035
+           1       0.54      0.69      0.61       374
 
-    accuracy                           0.73      1409
-   macro avg       0.69      0.73      0.69      1409
-weighted avg       0.78      0.73      0.74      1409
+    accuracy                           0.76      1409
+   macro avg       0.71      0.74      0.72      1409
+weighted avg       0.79      0.76      0.77      1409
 
-Results:
-- Accuracy: 73% (worse accuracy then the first version).
-- ROC-AUC Score: 0.80 (slightly better).
-- Previous version may be better overall in terms of accuracy, precision, and F1-score, especially for class 1.
-Current version shows a better ROC-AUC score and is better at capturing actual churners, as indicated by the higher recall for class 1.
+ROC-AUC Score: 0.8178395205249427
 
- Model (Version 3)
-- Instead of replacing "Total Charges" with a value of 0, it is now replaced with median.
-Final Results:
+---------------------------------------------
+*Random forest experiment results (with SMOTE):
 Accuracy: 0.76%
 Classification Report:
                precision    recall  f1-score   support
@@ -88,17 +76,9 @@ Classification Report:
    macro avg       0.71      0.73      0.72      1409
 weighted avg       0.78      0.76      0.77      1409
 
-5. Evaluation
 
--First Version of the model:
- Accuracy: 76%
- ROC-AUC Score: 0.79
- (churn class) precision = 0.55, recall = 0.57, f1-score = 0.56
+-----------------------------------------------------------------
 
--Final Model Performance:
- Accuracy: 76%
- ROC-AUC Score: 0.84
- (churn class) precision = 0.54, recall = 0.67, f1-score = 0.60
 
 6. Deployment
 

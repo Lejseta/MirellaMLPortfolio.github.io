@@ -14,7 +14,7 @@ Data Issues Identified:
 3. Data Preparation
 Pre-processing Steps:
 - Skipping empty files.
-- Encoding categorical variables
+- Text vectorization
 4. Modeling
 
 Model (Version 1)

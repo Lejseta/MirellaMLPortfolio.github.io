@@ -88,4 +88,4 @@ weighted avg       0.78      0.76      0.77      1409
 
 Conclusion:
 
-The end model identifies customers who leave better (higher recall), but losing slightly in precision, although the accuracy has not increased relative to the 1st version of model.
+Accuracy has improved (compared to version 1). Imbalance is still a problem (class 1 is weaker).

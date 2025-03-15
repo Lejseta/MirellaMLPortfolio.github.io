@@ -1,0 +1,65 @@
+Mirella Glowinska
+C00275764
+Dataset source: https://www.kaggle.com/datasets/rakannimer/air-passengers
+
+1. Business understanding:
+
+The objective of a model is to forecast monthly airline passenger numbers to help with revenue forecasting, and capacity planning.
+
+2. Dataset Overview & Issues
+
+- Thhe Dataset contains 144 records
+- Columns: Month, Passenger count
+
+Issues:
+- Small Dataset
+3. Pre-processing
+- Convert the 'Month' column into datetime format
+- Normalisation: Scales values to [0,1] range
+
+Version 1:
+Model used: LSTM
+Experiments with a smaller number of epochs and batch size:
+-  epochs: 200,
+-  batch_size: 1
+
+Train RMSE: 10.95
+Test RMSE: 44.95
+
+Problem: Overfitting 
+-----------------------------------------------------------
+Version 2:
+- batch_size:16
+- epochs: 500
+
+- Added dropout: 0.2-0.3
+
+
+Training Metrics:
+RMSE: 26.96 
+MAE: 21.33
+
+Test Metrics:
+RMSE: 40.41
+MAE: 34.01
+
+
+- Dropout and early stopping prevented memorisation of training patterns (overfitting) - stopped at the optimal epoch
+- Bidirectional LSTM instead of single LSTM captured complex temporal relationships
+- Test error decreased significantly (reduced overfitting)
+- Training error increased (intentional regularisation)
+----------------------------------------------------------
+Version 3:
+- Increased Dropout: 0.3-0.4
+Training Metrics:
+RMSE: 27.18 
+MAE: 20.72
+
+Test Metrics:
+RMSE: 37.29 
+MAE: 31.60
+
+- Training error slightly increased (more regularisation).
+
+- Test error improved further (better generalization).
+

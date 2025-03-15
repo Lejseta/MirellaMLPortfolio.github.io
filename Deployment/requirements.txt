@@ -2,3 +2,10 @@ joblib
 flask
 imbalanced-learn
 pandas
+tensorflow
+flask
+scikit-learn
+numpy
+werkzeug
+protobuf  
+h5py       

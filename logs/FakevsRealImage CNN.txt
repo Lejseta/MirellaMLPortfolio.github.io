@@ -1,0 +1,43 @@
+Mirella Glowinska
+C0027564
+
+Dataset source:
+1. Business understanding:
+The objective of a model is to develop an image classification model to detect fake images.
+2. Dataset Overview & Issues
+- Training set:
+ - Real: 50 000 images
+ - Fake: 50 000 images
+- Test set:
+ - Real: 10 000 images
+ - Fake: 10 000 images
+Due to the hardware constrains I had to select less training images:
+- Real: 20 000 images
+- Fake: 20 000 images
+Problems:
+- High computational requirements.
+- Hardware limitations for local training.  
+- High VRAM needs.
+3. Pre-processing
+- image resizing
+- normalisation
+
+Verision1:
+- epochs: 15
+- images 32px
+- augmentation 
+Test Accuracy: 92.27%
+Problems: overfitting - validation accuracy plateaued after epoch 10 indicating overfitting
+
+Version2:
+Increased resolution to 64x64
+- Added Global Average Pooling instead of flatten
+- Deeper network (3 conv blocks)
+- Modified augmentation
+Test Accuracy: 88.36%
+
+Better feature preservation (GAP vs Flatten).
+GlobalAvgPool reduced overfitting but increased underfitting risk.
+Potential underfitting due to depth.
+
+I decided to keep the first version because of higher test accuracy.

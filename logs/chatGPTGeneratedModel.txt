@@ -1,0 +1,226 @@
+
+Mirella Glowinska
+C00275764
+
+Prompt:
+Generate the full code for the Sarcasm Detection in python. use this dataset: https://www.kaggle.com/datasets/rmisra/news-headlines-dataset-for-sarcasm-detection
+Provide a requirements file. 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Response:
+
+Here's a full implementation for sarcasm detection using the dataset you've mentioned, using Python with TensorFlow and Keras.
+
+### Step-by-Step Code Implementation:
+
+#### 1. Download the Dataset
+First, make sure to download the dataset from Kaggle: [News Headlines Dataset for Sarcasm Detection](https://www.kaggle.com/datasets/rmisra/news-headlines-dataset-for-sarcasm-detection).
+
+Once the dataset is downloaded and unzipped, the `Sarcasm_Headlines_Dataset.json` file will be available for use.
+
+#### 2. Requirements File (`requirements.txt`)
+
+The following libraries are required for this project:
+
+```txt
+tensorflow==2.11.0
+numpy==1.23.5
+pandas==1.5.3
+sklearn==1.2.1
+matplotlib==3.7.1
+nltk==3.7
+```
+
+Install the required libraries by running:
+
+```bash
+pip install -r requirements.txt
+```
+
+#### 3. Full Python Code for Sarcasm Detection:
+
+```python
+import json
+import numpy as np
+import pandas as pd
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, LSTM, Embedding, SpatialDropout1D
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from sklearn.model_selection import train_test_split
+from nltk.tokenize import word_tokenize
+import nltk
+
+# Download necessary NLTK resources
+nltk.download('punkt')
+
+# Load the dataset
+def load_data(file_path):
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+    headlines = []
+    labels = []
+    for entry in data:
+        headlines.append(entry['headline'])
+        labels.append(1 if entry['is_sarcastic'] == 1 else 0)
+    return pd.DataFrame({'headline': headlines, 'label': labels})
+
+# Load the dataset into a DataFrame
+df = load_data('Sarcasm_Headlines_Dataset.json')
+
+# Split the dataset into training and testing sets
+X = df['headline']
+y = df['label']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Tokenize the text data
+max_words = 5000  # Vocabulary size
+max_sequence_length = 100  # Length of input sequences
+
+tokenizer = Tokenizer(num_words=max_words)
+tokenizer.fit_on_texts(X_train)
+
+# Convert text to sequences of integers
+X_train_seq = tokenizer.texts_to_sequences(X_train)
+X_test_seq = tokenizer.texts_to_sequences(X_test)
+
+# Pad sequences to ensure uniform input size
+X_train_pad = pad_sequences(X_train_seq, maxlen=max_sequence_length)
+X_test_pad = pad_sequences(X_test_seq, maxlen=max_sequence_length)
+
+# Build the LSTM model
+model = Sequential()
+model.add(Embedding(max_words, 128, input_length=max_sequence_length))
+model.add(SpatialDropout1D(0.2))
+model.add(LSTM(100, dropout=0.2, recurrent_dropout=0.2))
+model.add(Dense(1, activation='sigmoid'))
+
+# Compile the model
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+# Train the model
+history = model.fit(X_train_pad, y_train, epochs=5, batch_size=64, validation_data=(X_test_pad, y_test))
+
+# Evaluate the model
+score, accuracy = model.evaluate(X_test_pad, y_test, verbose=2)
+print(f"Test Accuracy: {accuracy * 100:.2f}%")
+
+# Function to make predictions
+def predict_sarcasm(headline):
+    sequence = tokenizer.texts_to_sequences([headline])
+    padded = pad_sequences(sequence, maxlen=max_sequence_length)
+    prediction = model.predict(padded)
+    return "Sarcastic" if prediction > 0.5 else "Not Sarcastic"
+
+# Example usage
+print(predict_sarcasm("I love waiting in long lines!"))  # Sarcastic example
+print(predict_sarcasm("I can't wait to go to the beach!"))  # Non-sarcastic example
+```
+
+### Breakdown of the Code:
+1. **Data Loading:** 
+   - The `load_data` function loads the dataset from a JSON file, extracts headlines, and assigns labels (1 for sarcastic, 0 for non-sarcastic).
+   
+2. **Preprocessing:**
+   - The `Tokenizer` from Keras converts the text into sequences of integers.
+   - The sequences are padded to ensure they all have the same length.
+
+3. **Model Architecture:**
+   - The model consists of:
+     - **Embedding Layer:** Converts words into dense vectors.
+     - **LSTM Layer:** Captures sequential dependencies in the headlines.
+     - **Dense Layer:** Outputs a single value (0 or 1) representing sarcasm.
+
+4. **Training:** 
+   - The model is trained using binary cross-entropy loss and the Adam optimizer for 5 epochs.
+
+5. **Evaluation and Prediction:** 
+   - The model is evaluated on the test set and the accuracy is printed.
+   - The `predict_sarcasm` function can be used to predict whether a new headline is sarcastic or not.
+
+### To Run:
+1. Download the dataset and save it as `Sarcasm_Headlines_Dataset.json` in your project directory.
+2. Run the Python code after installing dependencies.
+
+This model should give you a good starting point for sarcasm detection!
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prompt:
+JSONDecodeError                           Traceback (most recent call last)
+Cell In[1], line 28
+     25     return pd.DataFrame({'headline': headlines, 'label': labels})
+     27 # Load the dataset into a DataFrame
+---> 28 df = load_data('../datasets/Sarcasm_Headlines_Dataset.json')
+     30 # Split the dataset into training and testing sets
+     31 X = df['headline']
+
+Cell In[1], line 19, in load_data(file_path)
+     17 def load_data(file_path):
+     18     with open(file_path, 'r') as file:
+---> 19         data = json.load(file)
+     20     headlines = []
+     21     labels = []
+
+File c:\Program Files\Python312\Lib\json\__init__.py:293, in load(fp, cls, object_hook, parse_float, parse_int, parse_constant, object_pairs_hook, **kw)
+    274 def load(fp, *, cls=None, object_hook=None, parse_float=None,
+    275         parse_int=None, parse_constant=None, object_pairs_hook=None, **kw):
+    276     """Deserialize `fp (a .read()-supporting file-like object containing
+    277     a JSON document) to a Python object.
+    278 
+   (...)    291     kwarg; otherwise `JSONDecoder is used.
+    292     """
+--> 293     return loads(fp.read(),
+...
+    339 if end != len(s):
+--> 340     raise JSONDecodeError("Extra data", s, end)
+    341 return obj
+
+JSONDecodeError: Extra data: line 2 column 1 (char 217)
+
+fix this probelm.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Response:
+The error you encountered (`JSONDecodeError: Extra data`) occurs when there is more than one JSON object in the file. The `json.load()` function expects the file to contain a single JSON object, but if it contains multiple JSON objects or non-JSON data, this error can occur.
+
+To fix this, you need to ensure that the file is correctly parsed. If your JSON file contains multiple objects, we can use `json.loads()` to read the file line by line or handle the multiple JSON objects manually.
+
+Here's how you can fix the issue:
+
+### Solution:
+
+Modify the `load_data` function to read the JSON file properly, ensuring that each entry is processed correctly.
+
+```python
+import json
+import pandas as pd
+
+# Load the dataset
+def load_data(file_path):
+    headlines = []
+    labels = []
+    with open(file_path, 'r') as file:
+        for line in file:
+            # Load each line as a separate JSON object
+            data = json.loads(line)
+            headlines.append(data['headline'])
+            labels.append(1 if data['is_sarcastic'] == 1 else 0)
+    return pd.DataFrame({'headline': headlines, 'label': labels})
+
+# Load the dataset into a DataFrame
+df = load_data('Sarcasm_Headlines_Dataset.json')
+
+# Split the dataset into training and testing sets
+X = df['headline']
+y = df['label']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Continue with the rest of the code...
+```
+
+### Explanation:
+- We open the file and read it line by line.
+- Each line is treated as a separate JSON object (`json.loads(line)`), and we extract the `headline` and `is_sarcastic` fields for processing.
+- The rest of the code remains the same after this modification.
+
+This should resolve the `JSONDecodeError`. Let me know if you need further assistance!

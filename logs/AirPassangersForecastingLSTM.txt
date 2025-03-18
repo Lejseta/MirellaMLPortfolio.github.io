@@ -63,3 +63,9 @@ MAE: 31.60
 
 - Test error improved further (better generalization).
 
+6. Deployment
+
+- Saving the version of a model
+- Developing a Flask app that can handle incoming requests, process them and send the response with the prediction.
+- Building an isolated application container for simple project initialization
+

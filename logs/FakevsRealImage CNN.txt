@@ -27,7 +27,7 @@ Verision1:
 - images 32px
 - augmentation 
 Test Accuracy: 92.27%
-Problems: overfitting - validation accuracy plateaued after epoch 10 indicating overfitting
+Problems: overfitting - validation accuracy stopped increasing after epoch 10, indicating overfitting
 
 Version2:
 Increased resolution to 64x64

@@ -8,7 +8,7 @@ The objective of a model is to forecast monthly airline passenger numbers to hel
 
 2. Dataset Overview & Issues
 
-- Thhe Dataset contains 144 records
+- The Dataset contains 144 records
 - Columns: Month, Passenger count
 
 Issues:

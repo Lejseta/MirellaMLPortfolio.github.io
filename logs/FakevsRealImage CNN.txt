@@ -3,7 +3,7 @@ C0027564
 
 Dataset source:
 1. Business understanding:
-The objective of a model is to develop an image classification model to detect fake images.
+The objective of a model is to develop an image classification model to detect whether the image is fake or real.
 2. Dataset Overview & Issues
 - Training set:
  - Real: 50 000 images
